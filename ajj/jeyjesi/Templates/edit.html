@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Entry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4">Edit Entry</h2>
+
+    <form method="post" class="border p-4 shadow rounded bg-light">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" value="{{ entry.name }}" name="name" class="form-control">
+<!--Pre-fills form with data using {{ entry.field }}-->
+        </div>
+        <div class="mb-3">
+            <label for="regno" class="form-label">Regno:</label>
+            <input type="text" id="regno" value="{{ entry.regno }}" name="regno" readonly class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department:</label>
+            <input type="text" id="department" value="{{ entry.department }}" name="department" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="mail" class="form-label">Mail:</label>
+            <input type="email" id="mail" value="{{ entry.mail }}" name="mail" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/" class="btn btn-secondary ms-2">Back</a>
+    </form>
+</body>
+</html>
